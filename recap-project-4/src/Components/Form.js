@@ -1,6 +1,6 @@
 import "./Form.css";
 
-export default function Form() {
+export default function Form({ onAddActivity }) {
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -14,6 +14,7 @@ export default function Form() {
       isForGoodWeather: isForGoodWeather,
     };
     console.log(newActivity);
+    onAddActivity(newActivity);
 
     event.target.reset();
     event.target.elements.activity.focus();
@@ -26,11 +27,8 @@ export default function Form() {
         <input name="activity" className="activity" required />
         <label htmlFor="weather">Good-weather activity?</label>
         <input name="isForGoodWeather" className="weather" type="checkbox" />
-        <button>Submit</button>
+        <button onClick={onAddActivity}>Submit</button>
       </div>
     </form>
   );
 }
-
-//onClick={onAddActivity}
-//data.isForGoodWeather === "on"? true : false;
