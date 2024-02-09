@@ -5,7 +5,7 @@ export default function Form({ onAddActivity }) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    console.log(data);
+    // console.log(data);
 
     const isForGoodWeather = data.isForGoodWeather === "on" ? true : false;
 
@@ -13,21 +13,28 @@ export default function Form({ onAddActivity }) {
       name: data.activity,
       isForGoodWeather: isForGoodWeather,
     };
-    console.log(newActivity);
+    // console.log(newActivity);
     onAddActivity(newActivity);
 
     event.target.reset();
     event.target.elements.activity.focus();
   }
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Add a new activity</h1>
+    <form className="form" onSubmit={handleSubmit}>
+      <h2>Add a new activity</h2>
+
       <div className="formField">
-        <label htmlFor="activity">Activity</label>
-        <input name="activity" className="activity" required />
-        <label htmlFor="weather">Good-weather activity?</label>
-        <input name="isForGoodWeather" className="weather" type="checkbox" />
-        <button onClick={onAddActivity}>Submit</button>
+        <div>
+          <label htmlFor="activity">Name:</label>
+          <input name="activity" className="activity" required />
+        </div>
+        <div>
+          <label htmlFor="weather">Good-weather activity? </label>
+          <input name="isForGoodWeather" className="weather" type="checkbox" />
+        </div>
+        <button className="submitButton" type="submit">
+          Submit
+        </button>
       </div>
     </form>
   );
