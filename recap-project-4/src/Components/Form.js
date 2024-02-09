@@ -14,6 +14,7 @@ export default function Form({ onAddActivity }) {
       isForGoodWeather: isForGoodWeather,
     };
     console.log(newActivity);
+    onAddActivity(newActivity);
 
     event.target.reset();
     event.target.elements.activity.focus();
