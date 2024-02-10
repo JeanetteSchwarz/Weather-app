@@ -2,9 +2,16 @@ import "./List.css";
 
 export default function List(
   activitiesForGoodWeather,
-  activitiesForBadWeather
+  activitiesForBadWeather,
+  temperature,
+  isGoodWeather,
+  activities
 ) {
   console.log(activitiesForBadWeather, activitiesForGoodWeather);
+
+  /* const activities = isGoodWeather
+    ? activitiesForGoodWeather
+    : activitiesForBadWeather; */
 
   const whichWeather = activitiesForGoodWeather
     ? "Weather is fine, let's go outside and eat cake"
@@ -15,11 +22,11 @@ export default function List(
       <div>
         <h2>{whichWeather}</h2>
         <ul className="list">
-          {/* {activities.map((activity) => (
+          {activities.map((activity) => (
             <li key={activity.id}>
               <p className="activity-list">{activity.name}</p>
             </li>
-          ))} */}
+          ))}
         </ul>
       </div>
     </>
