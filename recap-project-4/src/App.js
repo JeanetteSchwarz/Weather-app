@@ -1,4 +1,3 @@
-//import logo from "./logo.svg";
 import { uid } from "uid";
 import "./App.css";
 import Form from "./Components/Form/Form";
@@ -16,13 +15,8 @@ function App() {
 
   function handleAddActivity(newActivity) {
     // console.log(newActivity);
-
     setActivities([{ ...newActivity, id: uid() }, ...activities]);
   }
-
-  /*   function handleAddActivity(newActivity) {
-    setActivities([{...newActivity, id: uid()}, ...activities])
- } */
 
   const activitiesForGoodWeather = activities.filter(
     (activity) => activity.isForGoodWeather === true
@@ -33,7 +27,7 @@ function App() {
   );
 
   const emoji = isGoodWeather ? "☀️" : "🌧️";
-  //const currentTemperature = data.temperature;
+  const currentTemperature = temperature;
 
   console.log(activities);
 
@@ -43,7 +37,7 @@ function App() {
         "https://example-apis.vercel.app/api/weather"
       );
       const data = await response.json();
-      console.log(data);
+      //console.log(data);
 
       setCurrentWeather(data.isGoodWeather);
       setTemperature(data.temperature);
@@ -56,13 +50,15 @@ function App() {
       <h1 className="headline">Show me the weather!</h1>
       <p className="display">
         {emoji}
-        {} °C
+        {temperature} °C
       </p>
       <List
         activitiesForGoodWeather={activitiesForGoodWeather}
         activitiesForBadWeather={activitiesForBadWeather}
         temperature={temperature}
         isForGoodWeather={isGoodWeather}
+        activities={activities}
+        onAddActivity={handleAddActivity}
       />
       <Form onAddActivity={handleAddActivity} />
     </div>

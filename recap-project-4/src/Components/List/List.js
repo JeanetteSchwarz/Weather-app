@@ -1,13 +1,15 @@
 import "./List.css";
 
-export default function List(
+export default function List({
   activitiesForGoodWeather,
   activitiesForBadWeather,
   temperature,
   isGoodWeather,
-  activities
-) {
-  console.log(activitiesForBadWeather, activitiesForGoodWeather);
+  activities,
+}) {
+  //console.log(activitiesForBadWeather, activitiesForGoodWeather);
+
+  console.log(activities);
 
   /* const activities = isGoodWeather
     ? activitiesForGoodWeather

@@ -5,19 +5,20 @@ export default function Form({ onAddActivity }) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
+    const form = event.target;
     // console.log(data);
 
     const isForGoodWeather = data.isForGoodWeather === "on" ? true : false;
 
     const newActivity = {
-      name: data.activity,
+      name: data.name,
       isForGoodWeather: isForGoodWeather,
     };
     // console.log(newActivity);
     onAddActivity(newActivity);
 
-    event.target.reset();
-    event.target.elements.activity.focus();
+    form.reset();
+    //form.elements.activity.focus();
   }
   return (
     <form className="form" onSubmit={handleSubmit}>
@@ -26,7 +27,7 @@ export default function Form({ onAddActivity }) {
       <div className="formField">
         <div>
           <label htmlFor="activity">Name:</label>
-          <input name="activity" className="activity" required />
+          <input name="name" type="text" className="activity" required />
         </div>
         <div>
           <label htmlFor="weather">Good-weather activity? </label>
