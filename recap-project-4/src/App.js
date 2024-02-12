@@ -29,6 +29,10 @@ function App() {
   const emoji = isGoodWeather ? "☀️" : "🌧️";
   const currentTemperature = temperature;
 
+  function handleDelete(id) {
+    setActivities(activities.filter((activity) => activity.id !== id));
+  }
+
   console.log(activities);
 
   useEffect(() => {
@@ -59,6 +63,7 @@ function App() {
         isForGoodWeather={isGoodWeather}
         activities={activities}
         onAddActivity={handleAddActivity}
+        onDelete={handleDelete}
       />
       <Form onAddActivity={handleAddActivity} />
     </div>
