@@ -37,7 +37,7 @@ function App() {
         "https://example-apis.vercel.app/api/weather"
       );
       const data = await response.json();
-      //console.log(data);
+      console.log(data);
 
       setCurrentWeather(data.isGoodWeather);
       setTemperature(data.temperature);

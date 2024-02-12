@@ -2,6 +2,10 @@ li {
   list-style: none;
   border: 1px solid black;
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
   padding: 4px;
   margin-top: 2px;
   background-color: rgb(166, 138, 113);
@@ -15,23 +19,6 @@ ul {
   justify-content: space-between;
 }
 
-/* ul {
-  margin-left: 6rem;
-  margin-right: 6rem;
-  list-style-type: none;
-  padding: 0;
-  max-width: 20rem;
+.deleteButton {
+  height: 2em;
 }
-
-li {
-  
-
-  
- 
-  
-  border-radius: 4px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
- */

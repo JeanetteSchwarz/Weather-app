@@ -5,17 +5,12 @@ export default function List({
   activitiesForBadWeather,
   temperature,
   isGoodWeather,
-  activities,
 }) {
-  //console.log(activitiesForBadWeather, activitiesForGoodWeather);
-
-  console.log(activities);
-
-  /* const activities = isGoodWeather
+  const activities = isGoodWeather
     ? activitiesForGoodWeather
-    : activitiesForBadWeather; */
+    : activitiesForBadWeather;
 
-  const whichWeather = activitiesForGoodWeather
+  const whichWeather = isGoodWeather
     ? "Weather is fine, let's go outside and eat cake"
     : "Weather is poor, let's stay inside and eat cake";
 
@@ -27,6 +22,9 @@ export default function List({
           {activities.map((activity) => (
             <li key={activity.id}>
               <p className="activity-list">{activity.name}</p>
+              <button className="deleteButton" type="button">
+                x
+              </button>
             </li>
           ))}
         </ul>
