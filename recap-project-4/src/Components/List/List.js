@@ -3,7 +3,6 @@ import "./List.css";
 export default function List({
   activitiesForGoodWeather,
   activitiesForBadWeather,
-  temperature,
   isGoodWeather,
   onDelete,
 }) {

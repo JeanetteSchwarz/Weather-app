@@ -18,7 +18,7 @@ export default function Form({ onAddActivity }) {
     onAddActivity(newActivity);
 
     form.reset();
-    //form.elements.activity.focus();
+    form.elements.activity.focus();
   }
   return (
     <form className="form" onSubmit={handleSubmit}>
@@ -27,11 +27,22 @@ export default function Form({ onAddActivity }) {
       <div className="formField">
         <div>
           <label htmlFor="activity">Name:</label>
-          <input name="name" type="text" className="activity" required />
+          <input
+            name="name"
+            type="text"
+            className="activity"
+            id="activity"
+            required
+          />
         </div>
         <div>
           <label htmlFor="weather">Good-weather activity? </label>
-          <input name="isForGoodWeather" className="weather" type="checkbox" />
+          <input
+            name="isForGoodWeather"
+            className="weather"
+            type="checkbox"
+            id="weather"
+          />
         </div>
         <button className="submitButton" type="submit">
           Submit

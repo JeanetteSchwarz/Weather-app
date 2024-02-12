@@ -12,6 +12,7 @@ function App() {
   const [currentWeather, setCurrentWeather] = useState();
   const [temperature, setTemperature] = useState();
   const [isGoodWeather, setisGoodWeather] = useState();
+  const [condition, setCondition] = useState();
 
   function handleAddActivity(newActivity) {
     // console.log(newActivity);
@@ -25,9 +26,6 @@ function App() {
   const activitiesForBadWeather = activities.filter(
     (activity) => activity.isForGoodWeather === false
   );
-
-  const emoji = isGoodWeather ? "☀️" : "🌧️";
-  const currentTemperature = temperature;
 
   function handleDelete(id) {
     setActivities(activities.filter((activity) => activity.id !== id));
@@ -45,6 +43,7 @@ function App() {
 
       setCurrentWeather(data.isGoodWeather);
       setTemperature(data.temperature);
+      setCondition(data.condition);
     }
     startFetching();
     const interval = setInterval(startFetching, 5000);
@@ -55,7 +54,8 @@ function App() {
     <div className="App">
       <h1 className="headline">Show me the weather!</h1>
       <p className="display">
-        {emoji}
+        {condition}
+        {"     "}
         {temperature} °C
       </p>
       <List
