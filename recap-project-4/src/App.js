@@ -47,6 +47,8 @@ function App() {
       setTemperature(data.temperature);
     }
     startFetching();
+    const interval = setInterval(startFetching, 5000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
